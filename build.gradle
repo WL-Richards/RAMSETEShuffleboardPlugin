@@ -1,0 +1,28 @@
+plugins {
+    id 'java-library'
+}
+
+group 'com.aembot'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "WPILib"
+        setUrl("https://frcmaven.wpi.edu/artifactory/release")
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compileOnly group: "edu.wpi.first.shuffleboard", name: "api", version: "2021.2.2"
+}
+
+task installPlugin(type: Copy) {
+    from tasks.getByName("jar")
+    into "${System.getProperty("user.home")}/Shuffleboard/plugins"
+    description = "Builds the plugin JAR and installs it in the Shuffleboard plugins directory."
+    group = "Shuffleboard Plugin"
+}
