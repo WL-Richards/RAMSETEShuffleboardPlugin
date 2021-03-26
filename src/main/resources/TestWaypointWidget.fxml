@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.geometry.Insets?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="WaypointTestWidget"
+      fx:id="root"
+      spacing="4">
+    <padding>
+        <!-- Keep a 4 pixel buffer around the widget to avoid it from feeling cramped -->
+        <Insets topRightBottomLeft="4"/>
+    </padding>
+    <Slider fx:id = "xSlider"/>
+    <Slider fx:id = "ySlider"/>
+</VBox>

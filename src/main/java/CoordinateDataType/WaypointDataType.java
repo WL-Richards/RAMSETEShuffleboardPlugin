@@ -8,7 +8,7 @@ import java.util.function.Function;
 public final class WaypointDataType extends ComplexDataType<WaypointData> {
 
     // Set the default name for the data type
-    private static final String NAME = "Waypoint";
+    private static final String NAME = "WaypointData";
 
     // Create a new static instance of the data type to allow the plugin to register the data type as a valid one for use in the plugin
     public  static  final WaypointDataType Instance = new WaypointDataType();

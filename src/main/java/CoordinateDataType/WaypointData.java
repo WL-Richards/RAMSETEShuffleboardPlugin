@@ -19,14 +19,53 @@ public final class WaypointData extends ComplexData<WaypointData> {
         this.isCalculated = isCalculated;
     }
 
+    /**
+     * Create new objects to store changed values
+     * @param newY new Y value
+     * @return new WaypointObject
+     */
+    public WaypointData withY(double newY){
+        return new WaypointData(this.x, this.y, this.isCalculated);
+    }
+
+    /**
+     * Create new objects to store changed values
+     * @param newX new X value
+     * @return new WaypointObject
+     */
+    public WaypointData withX(double newX){
+        return new WaypointData(newX, this.y, this.isCalculated);
+    }
+
+    /**
+     * Create new objects to store changed values
+     * @param newIsCalculated new isCalculated value
+     * @return new WaypointObject
+     */
+    public WaypointData withIsCalculated(boolean newIsCalculated){
+        return new WaypointData(this.x, this.y, newIsCalculated);
+    }
+
+    /**
+     * Getter for X value
+     * @return x
+     */
     public double getX() {
         return x;
     }
 
+    /**
+     * Getter for Y value
+     * @return y
+     */
     public double getY() {
         return y;
     }
 
+    /**
+     * Getter for isCalculated value
+     * @return isCalculated
+     */
     public boolean isCalculated() {
         return isCalculated;
     }
