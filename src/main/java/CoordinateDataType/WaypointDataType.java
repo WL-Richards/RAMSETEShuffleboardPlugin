@@ -24,13 +24,14 @@ public final class WaypointDataType extends ComplexDataType<WaypointData> {
                     (double) map.getOrDefault("realX", 0.0),
                     (double) map.getOrDefault("realY", 0.0),
                     (double) map.getOrDefault("calculatedX", 0.0),
-                    (double) map.getOrDefault("calculatedY", 0.0)
+                    (double) map.getOrDefault("calculatedY", 0.0),
+                    (boolean) map.getOrDefault("resetChart", false)
             );
         };
     }
 
     @Override
     public WaypointData getDefaultValue() {
-        return new WaypointData(0, 0, 0, 0);
+        return new WaypointData(0, 0, 0, 0, false);
     }
 }

@@ -10,12 +10,14 @@ import java.util.Objects;
  */
 public final class WaypointData extends ComplexData<WaypointData> {
     private final double realX, realY, calculatedX, calculatedY;
+    private final boolean resetChart;
 
-    public WaypointData(double realX, double realY, double calculatedX, double calculatedY) {
+    public WaypointData(double realX, double realY, double calculatedX, double calculatedY, boolean resetChart) {
         this.realX = realX;
         this.realY = realY;
         this.calculatedX = calculatedX;
         this.calculatedY = calculatedY;
+        this.resetChart = resetChart;
     }
 
 
@@ -25,7 +27,7 @@ public final class WaypointData extends ComplexData<WaypointData> {
      * @return new WaypointObject
      */
     public WaypointData setRealY(double newY){
-        return new WaypointData(this.realX, newY, this.calculatedX, this.calculatedY);
+        return new WaypointData(this.realX, newY, this.calculatedX, this.calculatedY, this.resetChart);
     }
 
     /**
@@ -34,7 +36,7 @@ public final class WaypointData extends ComplexData<WaypointData> {
      * @return new WaypointObject
      */
     public WaypointData setRealX(double newX){
-        return new WaypointData(newX, this.realY, this.calculatedX, this.calculatedY);
+        return new WaypointData(newX, this.realY, this.calculatedX, this.calculatedY, this.resetChart);
     }
 
     /**
@@ -43,7 +45,7 @@ public final class WaypointData extends ComplexData<WaypointData> {
      * @return new WaypointObject
      */
     public WaypointData setCalculatedY(double newY){
-        return new WaypointData(this.realX, this.realY, this.calculatedX, newY);
+        return new WaypointData(this.realX, this.realY, this.calculatedX, newY, this.resetChart);
     }
 
     /**
@@ -52,12 +54,12 @@ public final class WaypointData extends ComplexData<WaypointData> {
      * @return new WaypointObject
      */
     public WaypointData setCalculatedX(double newX){
-        return new WaypointData(this.realX, this.realY, newX, this.calculatedY);
+        return new WaypointData(this.realX, this.realY, newX, this.calculatedY, this.resetChart);
     }
 
     @Override
     public Map<String, Object> asMap() {
-        return Map.of("realX", realX, "realY", realY, "calculatedX", calculatedX, "calculatedY", calculatedY);
+        return Map.of("realX", realX, "realY", realY, "calculatedX", calculatedX, "calculatedY", calculatedY, "resetChart", resetChart);
     }
 
     @Override
@@ -65,12 +67,12 @@ public final class WaypointData extends ComplexData<WaypointData> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         WaypointData that = (WaypointData) o;
-        return Double.compare(that.realX, realX) == 0 && Double.compare(that.realY, realY) == 0 && Double.compare(that.calculatedX, calculatedX) == 0 && Double.compare(that.calculatedY, calculatedY) == 0;
+        return Double.compare(that.realX, realX) == 0 && Double.compare(that.realY, realY) == 0 && Double.compare(that.calculatedX, calculatedX) == 0 && Double.compare(that.calculatedY, calculatedY) == 0 && resetChart == that.resetChart;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(realX, realY, calculatedX, calculatedY);
+        return Objects.hash(realX, realY, calculatedX, calculatedY, resetChart);
     }
 
     public double getRealX() {
@@ -88,4 +90,6 @@ public final class WaypointData extends ComplexData<WaypointData> {
     public double getCalculatedY() {
         return calculatedY;
     }
+
+    public boolean getResetChart() {return resetChart;}
 }

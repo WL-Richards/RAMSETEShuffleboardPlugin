@@ -40,6 +40,7 @@ public class WaypointChartWidget extends SimpleAnnotatedWidget<WaypointData> {
         realCoords.setName("Real Coordinates");
         ramseteCoords.setName("Calculated Coordinates");
 
+        // Add both data series to the chart
         positionPlot.getData().add(realCoords);
         positionPlot.getData().add(ramseteCoords);
 
@@ -48,8 +49,16 @@ public class WaypointChartWidget extends SimpleAnnotatedWidget<WaypointData> {
 
             // Add a listener to the data incoming and whenever new data arrives add the new coordinates to the series
             dataProperty().addListener((observable, oldValue, newValue) -> {
-                ramseteCoords.getData().add(new XYChart.Data<>(newValue.getCalculatedX(), newValue.getCalculatedY()));
-                realCoords.getData().add(new XYChart.Data<>(newValue.getRealX(), newValue.getRealY()));
+
+                // Checks wether or not we are trying to reset the chart
+                if(!newValue.getResetChart()) {
+                    ramseteCoords.getData().add(new XYChart.Data<>(newValue.getCalculatedX(), newValue.getCalculatedY()));
+                    realCoords.getData().add(new XYChart.Data<>(newValue.getRealX(), newValue.getRealY()));
+                }
+                else{
+                    ramseteCoords.getData().clear();
+                    realCoords.getData().clear();
+                }
             });
         });
 
