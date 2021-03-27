@@ -21,15 +21,16 @@ public final class WaypointDataType extends ComplexDataType<WaypointData> {
     public Function<Map<String, Object>, WaypointData> fromMap() {
         return map ->{
             return new WaypointData(
-                    (double) map.getOrDefault("x", 0.0),
-                    (double) map.getOrDefault("y", 0.0),
-                    (boolean) map.getOrDefault("isCalculated", false)
+                    (double) map.getOrDefault("realX", 0.0),
+                    (double) map.getOrDefault("realY", 0.0),
+                    (double) map.getOrDefault("calculatedX", 0.0),
+                    (double) map.getOrDefault("calculatedY", 0.0)
             );
         };
     }
 
     @Override
     public WaypointData getDefaultValue() {
-        return new WaypointData(0, 0, false);
+        return new WaypointData(0, 0, 0, 0);
     }
 }

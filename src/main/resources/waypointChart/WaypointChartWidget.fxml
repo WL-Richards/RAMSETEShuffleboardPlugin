@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="waypointChart.WaypointChartWidget"
+           fx:id="root">
+    <LineChart fx:id="positionPlot" createSymbols="false">
+        <xAxis>
+            <NumberAxis autoRanging="false" side="BOTTOM" tickUnit="1" upperBound="32" />
+        </xAxis>
+        <yAxis>
+            <NumberAxis autoRanging="false" side="LEFT" tickUnit="1" upperBound="17" />
+        </yAxis>
+    </LineChart>
+
+</StackPane>

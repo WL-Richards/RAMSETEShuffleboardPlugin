@@ -5,7 +5,7 @@
 <?import javafx.geometry.Insets?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="WaypointTestWidget"
+      fx:controller="waypointTest.WaypointTestWidget"
       fx:id="root"
       spacing="4">
     <padding>
